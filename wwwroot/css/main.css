@@ -1,0 +1,99 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #040404;
+    padding: 40px;
+    color: #e0e0e0;
+}
+.input-wrapper{
+    width: 60%;
+    margin: 0 auto;
+}
+h1 {
+    color: #ff7e21;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #121212;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #2a2a2a;
+    text-align: left;
+}
+
+th {
+    background-color: #1e1e1e;
+    color: #ff7e21;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section > form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 16px; /* Optional spacing between inputs */
+    grid-auto-rows: auto 70px auto;
+}
+
+.form-section > form input:nth-of-type(1){
+    grid-column: 1 / -1;
+}
+
+.form-section > form input:nth-of-type(n+3){
+    grid-column: span 1; /* or grid-column: 1 / -1; for full width */
+}
+.fixed-width-btn {
+    width: 75px !important;
+}
+
+.btn {
+    padding: 10px 20px;
+    max-width: 200px !important;
+    background-color: #00bfff;
+    color: #040404;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 13px;
+}
+
+.form-section button {
+    background-color: #ff7e21;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    grid-column: 1 / -1;    
+    transition: background-color 0.3s ease;
+    background-image: none; /* removes default overlay */
+}
+
+.form-section button:hover {
+    background-color: #000010 !important;
+    background-image: none; /* ensures clean hover */
+    color: #fff;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}

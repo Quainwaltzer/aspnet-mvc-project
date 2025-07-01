@@ -1,0 +1,116 @@
+﻿@model PracticeNa.ViewModels.BudgetViewModel
+@using System.Text.Json
+@section Styles {
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/expenses.css" />
+}
+
+
+<h2>Expenses Overview</h2>
+<div class="chartContainer">
+    <div id="expenseChart" style="width:100%; height:400px;"></div>
+    <div id="expenseChart2" style="width:100%; height:400px;"></div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Highcharts.chart('expenseChart', {
+            chart: {
+                type: 'pie',
+                backgroundColor: 'transparent',
+                style: {
+                    color: '#FFFFFF' // sets default text color (e.g. white)
+                }
+            },
+            title: {
+                text: 'Total Budget per Category',
+                  style: {
+                    color: '#FFFFFF'
+                  }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>₱{point.y}</b>'
+
+            },
+             credits: {
+        enabled: false
+            },
+            plotOptions: {
+                bar: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: ₱{point.y}'
+                    }
+                },
+                style: {
+                    color: '#FFFFFF'
+                }
+            },
+            series: [{
+                name: 'Amount',
+                  style: {
+            color: '#FFFFFF'
+                  },
+                colorByPoint: true,
+                data: [
+                    @foreach (var item in Model.ChartData)
+                    {
+                            <text>{ name: '@item.Category', y: @item.TotalAmount },</text>
+                    }
+                ]
+            }]
+        });
+
+        Highcharts.chart('expenseChart2', {
+            chart: {
+                type: 'bar',
+                backgroundColor: 'transparent',
+                style: {
+                    color: '#FFFFFF' // sets default text color (e.g. white)
+                }
+            },
+            title: {
+                text: 'Most category expenses',
+                  style: {
+                    color: '#FFFFFF'
+                  }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+
+            },
+            plotOptions: {
+                bar: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}'
+                    }
+                },
+                style: {
+                    color: '#FFFFFF'
+                }
+            },
+             credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Amount',
+                  style: {
+            color: '#FFFFFF'
+                  },
+                colorByPoint: true,
+                data: [
+                    @foreach (var item in Model.MostExp)
+                    {
+                                <text>{ name: '@item.Category', y: @item.TotalCount },</text>
+                    }
+                ]
+            }]
+        });
+    });
+</script>

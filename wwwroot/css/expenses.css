@@ -1,0 +1,14 @@
+﻿.chartContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+h2{
+
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+div {
+    font-family: 'Inter', sans-serif;
+  ;
+}
