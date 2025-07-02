@@ -38,6 +38,18 @@
                         @DateTime.Now.ToString("dddd, MMM dd yyyy")
                     </span>
                 </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+                        <button type="submit" class="btn btn-link nav-link" style="border:none; padding:0;">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                }
+
             </div>
         </nav>
     </header>
